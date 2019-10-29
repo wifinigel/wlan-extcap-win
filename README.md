@@ -11,7 +11,7 @@ This is an easy to install plug-in to allow configuration and remote capture fro
 
 If you want to get going quickly and are happy to try out the defaults, go with the following steps:
 
-1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option checked during install
+1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option (in the Tools section) checked during install
 2. Make sure you have WLANPi image version 1.9.0 or later installed (due Nov/Dec 2019 - see fix for v1.8.3 below)
     1. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
 3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
