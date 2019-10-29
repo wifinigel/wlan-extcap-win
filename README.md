@@ -9,4 +9,4 @@ This is an easy to install plug-in to allow configuration and remote capture of 
 <!-- Links -->
 
 [wlan-extcap]: https://github.com/adriangranados/wlan-extcap
-![Capture_Image]: images/wireshark_capture_tab.JPG
+[Capture_Image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_capture_tab.JPG
