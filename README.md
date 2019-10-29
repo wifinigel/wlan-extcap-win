@@ -1,7 +1,7 @@
 # wlan-extcap-win
-Wireshark extcap interface for remote wireless captures in Windows - based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap]
+Wireshark extcap interface for remote wireless captures in Windows 10 - based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap]
 
-This is an easy to install plug-in to allow configuration and remote capture from a WLANPi directly from Wireshark (...I know!). It has many of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt. It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. no other dependancies to install on your Windows machine). 
+This is an easy to install plug-in to allow configuration and remote capture from a WLANPi directly from Wireshark (...I know!). It has many of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt. It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. no other dependancies to install on your Windows 10 machine). 
 
 ![Screenshot][Capture_Image]
 
@@ -13,7 +13,8 @@ If you want to get going quickly and are happy to try out the defaults, go with 
 
 1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option checked during install
 2. Make sure you have WLANPi image version 1.9.0 or later installed (due Nov/Dec 2019 - see fix for v1.8.3 below)
-3. Download this file: [wlanpidump.bat][wlanpidump.bat]
+    1. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
+3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
 4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
 5. Make sure you have network connectivity to your WLANPi
 6. Start Wireshark
@@ -33,13 +34,13 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
   Change the line:
 
 ``` 
-    wlanpi ALL = (root) NOPASSWD: /sbin/ip, /usr/sbin/iw
+    wlanpi ALL = (root) NOPASSWD: /sbin/iwconfig, /usr/sbin/iw
 ```
 
   to:
 
 ```
-    wlanpi ALL = (root) NOPASSWD: /sbin/ip, /usr/sbin/iw, /bin/date
+    wlanpi ALL = (root) NOPASSWD: /sbin/iwconfig, /usr/sbin/iw, /bin/date
 ```
 
   ...and then save by hitting Ctrl-X and hitting 'Y' to save changes
