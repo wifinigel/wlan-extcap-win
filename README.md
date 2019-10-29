@@ -11,16 +11,16 @@ This is an easy to install plug-in to allow configuration and remote capture fro
 
 If you want to get going quickly and are happy to try out the defaults, go with the following steps:
 
-    1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option checked during install
-    2. Make sure you have WLANPIimage version 1.9.0 or later installed (due Nov/Dec 2019 - see fix for v1.8.3 below)
-    3. Download this file: [wlanpidump.bat][wlanpidump.bat]
-    4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
-    5. Make sure you have network connectivity to your WLANPi
-    6. Start Wireshark
-        1. Look at the interface list on the Wireshark GUI home page
-        2. Locate the interface called 'WLAN Pi remote capture (Win)'
-        3. Click the small cog icon next to the interface to configure your capture session
-    7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
+1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option checked during install
+2. Make sure you have WLANPIimage version 1.9.0 or later installed (due Nov/Dec 2019 - see fix for v1.8.3 below)
+3. Download this file: [wlanpidump.bat][wlanpidump.bat]
+4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
+5. Make sure you have network connectivity to your WLANPi
+6. Start Wireshark
+   1. Look at the interface list on the Wireshark GUI home page
+   2. Locate the interface called 'WLAN Pi remote capture (Win)'
+    3. Click the small cog icon next to the interface to configure your capture session
+7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
 
 ### Image Version 1.8.3 Workaround
 
