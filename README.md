@@ -1,5 +1,6 @@
 # Windows 10 Wireshark Plug-in for WLANPi Wireless Captures (wlan-extcap-win)
 ![wlanpi Image][wlanpi_image]
+
 This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. there are no other dependancies to install on your Windows 10 machine). 
 
 (_Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!_)
@@ -95,7 +96,14 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 
 ![Server Tab][Server_Image]
 
+* WLAN Pi Address: This is the IP address of your WLANPi, which is 192.168.42.1 bey default if you use the direct USB connection method. However, the WLANPI could be connected anywhere on your network, so simply enter the IP address where you can reach your WLANPi.
+* WLANPi Port: The ususal network port for SSH is 22, which is the default provided in this utility. If you change the port used by SSH on you WLANPi for some reason, you will need to update this field to match
+
 ![Authentication Tab][Auth_Image]
+
+* WLAN Pi Username: As an SSH session is established between your Windows machine and the WLANPi, login credentials are required. The default username used on a default WLANPi image is 'wlanpi'. If you have a different account on the WLANPi you would like to use, update this field
+* WLAN Pi Username: As an SSH session is established between your Windows machine and the WLANPi, login credentials are required. The default password used on a default WLANPi image is 'wlanpi'. If you change the default password or have a different account on the WLANPi you would like to use, update this field
+* Path to SSH Private Key: If you choose to use a priavet key to authenticate instead of using a username/password, enter the pasth to the key file here
 
 ![Advanced Tab][Adv_Tab_Image]
 
