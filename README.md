@@ -1,7 +1,10 @@
 # Windows 10 Wireshark Plug-in for WLANPi Wireless Captures (wlan-extcap-win)
-This is an easy to install plug-in to allow configuration and capture from a WLANPi directly from Wireshark. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt. It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. no other dependancies to install on your Windows 10 machine). 
+<div style="float: right;">
+![Wlanpi Image][wlanpi_image]
+</div>
+This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. there are no other dependancies to install on your Windows 10 machine). 
 
-(Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!)
+(_Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!_)
 
 ![Screenshot][Capture_Image]
 
@@ -25,7 +28,7 @@ If you want to get going quickly and are happy to try out the defaults*, go with
    3. Click the small cog icon next to the interface to configure your capture session ![Interfaces][Interface_Image]
 7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
 
-(* Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPii IP address is 192.168.42.1), wireless intrface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - docs to follow on this)
+(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPii IP address is 192.168.42.1), wireless intrface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - docs to follow on this_)
 
 ### Image Version 1.8.3 Workaround
 
@@ -48,6 +51,15 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
 ```
 
   ...and then save by hitting Ctrl-X and hitting 'Y' to save changes
+
+### Installation - Full Version
+
+Installing the wlan-extcap-win plugin is relatively easy. Once you have Wireshark installed on your Winodws 10 machine and your WLANPi up and running, it's pretty much just a case of copying one file in to your Wireshark directory. 
+
+Before we can get to the good stuff though, we need to get a few things in place. I like pictures, so here is a picture of what we're going to achieve:
+
+![WLANPI Operation Overview][wlanpi_overview]
+
 
 ## Screen-shots
 
@@ -80,3 +92,5 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
 [wlanpidump.bat]: https://github.com/wifinigel/wlan-extcap-win/raw/master/wlanpidump.bat
 [sshdump_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_sshdump.JPG
 [tools_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_tools.JPG
+[wlanpi_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlanpi_and_nic.jpg
+[wlanpi_overview]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlan_extcap_win_Overview.jpg
