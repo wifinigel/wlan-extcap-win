@@ -9,12 +9,12 @@ This is an easy to install plug-in to allow configuration and capture from a WLA
 
 ### Quickstart
 
-If you want to get going quickly and are happy to try out the defaults, go with the following steps:
+If you want to get going quickly and are happy to try out the defaults*, go with the following steps:
 
 1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option (in the Tools section) checked during install
     1. Here is the check-box you need for SSHDump (Under the Tools snap-open) - *** Don't miss this step *** ![SSH Dump option Image][sshdump_image]
-    2. if you are wondering if your Wireshark installation already has SSHDump, it probably hasn't - it is not a default component that is installed. You can do a quick checj by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. if you don't have it, re-install Wireshark
-2. Make sure you have WLANPi image version 1.8.3 (see fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but please do not use any of the 1.9 alpha versions.
+    2. if you are wondering if your Wireshark installation already has SSHDump, it probably hasn't - it is not a default component that is installed. You can do a quick check by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. If you don't have it, re-install Wireshark
+2. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but please do not use any of the 1.9 alpha versions.
     1. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
 3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
 4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
@@ -24,6 +24,8 @@ If you want to get going quickly and are happy to try out the defaults, go with 
    2. Locate the interface called 'WLAN Pi remote capture (Win)'
    3. Click the small cog icon next to the interface to configure your capture session ![Interfaces][Interface_Image]
 7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
+
+(* Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPii IP address is 192.168.42.1), wireless intrface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will ned to edit the wlanpidump.bat file yourself - docs to follow on this)
 
 ### Image Version 1.8.3 Workaround
 
