@@ -1,8 +1,8 @@
 # Windows 10 Wireshark Plug-in for WLANPi Wireless Captures (wlan-extcap-win)
-<div style="float: right;">
-![Wlanpi Image][wlanpi_image]
-</div>
-This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. there are no other dependancies to install on your Windows 10 machine). 
+
+![wlanpi Image][wlanpi_image]
+
+This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. there are no other dependancies to install on your Windows 10 machine). ![wlanpi Image][wlanpi_image]
 
 (_Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!_)
 
@@ -70,9 +70,9 @@ The Windows machine and WLANPi can be connected via any type of IP network conne
 
 #### Wireshark
 
-We need Wireshark installed on our Windows machine so that we can configure our WLANPi and display capture wireless frames. 
+We need Wireshark installed on our Windows machine so that we can configure our WLANPi and display captured wireless frames. 
 
-If you don't already have Wireshark installed, do a quick Google and download the latest version. You must use verison 3.0.6 or later. However, before you double click the Wireshark install file and hit next, next, next...you need to know the follwoing information. There is an optional component you need to install called 'SSHDump'. It isn't one of the default selected components, so you need to look out for it and make sure it is selected before completing the Wireskark install. You will find it under the Tools option during the installation wizard:
+If you don't already have Wireshark installed, do a quick Google and download the latest version. You must use verison 3.0.6 or later. However, before you double click the Wireshark install file and hit next, next, next...you need to know the following information. There is an optional component you need to install called 'SSHDump'. It isn't one of the default selected components, so you need to look out for it and make sure it's selected before completing the Wireskark install. You will find it under the Tools option during the installation wizard:
 
 ![Install Tools][tools_image]
 
@@ -84,7 +84,7 @@ If you already have Wireshark installed, you probably need to run the installer 
 
 Once you have your laptop hooked up to the WLANPi, you have Wireshark set-up, then you're ready to capture.
 
-Fire up Wireshark and look out for the interface list at the bottom of the app hone page. You should see something like this:
+Fire up Wireshark and look out for the interface list at the bottom of the app home page. You should see something like this:
 
 ![Interfaces][Interface_Image]
 
