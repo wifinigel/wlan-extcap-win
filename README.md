@@ -1,7 +1,7 @@
-# wlan-extcap-win
-Wireshark extcap interface for remote wireless captures in Windows 10 - based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap]
-
+# Windows 10 Wireshark Plug-in for WLANPi Wireless Captures (wlan-extcap-win)
 This is an easy to install plug-in to allow configuration and capture from a WLANPi directly from Wireshark. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt. It is written as a native Windows batch file to make it as easy as possible to use for Windows users to be able to install (i.e. no other dependancies to install on your Windows 10 machine). 
+
+(Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!)
 
 ![Screenshot][Capture_Image]
 
