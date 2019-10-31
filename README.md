@@ -60,25 +60,46 @@ Before we can get to the good stuff though, we need to get a few things in place
 
 ![WLANPI Operation Overview][wlanpi_overview]
 
+To summarise, we want to use our WLANPi to capture 802.11 frames over the air. Windows is very tricky when comes to getting a native wireless adapter that can be used in monitor mode to capture 802.11 frames, so the WLANPi (which CAN capture 802.11 frames) is a nice solution to capture frames for us and stream them in to our copy of Wireshark on our Windows laptop.
 
-## Screen-shots
+#### Connectivity
 
-### Operation 
+The WLANPi needs to be configured to operate on a specific channel we'd like to capture on, as well as setting things like the channel width. The configuration is done over an SSH session fro our Windows machine, so needs some credentials to login in to our WLANPi to make the changes.
+
+The Windows machine and WLANPi can be connected via any type of IP network connection. In the example above, the Windows laptop is connected via a USB connection to the micro-USB connector on the WLANPI. This both powers the WLANPi, and also forms an Ethernet over USB network connection. This is something that Windows does automatically for us. If you look on your Windows network interface list after you plug in your WLANPi, you'll see a new  interface which is shown as an Ethernet adapter with a 192.168.42.x address. A good check before trying to use our plugin it to try an SSH session to the WLANPi from the Windows laptop to make sure network connectivity has been establised.
+
+#### Wireshark
+
+We need Wireshark installed on our Windows machine so that we can configure our WLANPi and display capture wireless frames. 
+
+If you don't already have Wireshark installed, do a quick Google and download the latest version. You must use verison 3.0.6 or later. However, before you double click the Wireshark install file and hit next, next, next...you need to know the follwoing information. There is an optional component you need to install called 'SSHDump'. It isn't one of the default selected components, so you need to look out for it and make sure it is selected before completing the Wireskark install. You will find it under the Tools option during the installation wizard:
+
+![Install Tools][tools_image]
+
+![SSHDump][sshdump_image]
+
+If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and checking if you have the sshdump.exe file. If not, you need to run the installer again.
+
+#### Operation
+
+Once you have your laptop hooked up to the WLANPi, you have Wireshark set-up, then you're ready to capture.
+
+Fire up Wireshark and look out for the interface list at the bottom of the app hone page. You should see something like this:
+
+![Interfaces][Interface_Image]
+
+If you click the small cog icon next to the 'WLANPi remote capture' inteface, you will get access to the configuration panels to set up the connection to the WLANPi. Each of the panels is shown below (with an explanation of the options):
 
 ![Capture Tab][Capture_Image]
+
+* Channel: Select the channel that you would like the WLANPi to capture on
+* Channel width: Select the width of the channel you wish capture (note, it the channel is 40MHz wide and you only select 20MHz, you likely won't see ant data frames in your capture)
 
 ![Server Tab][Server_Image]
 
 ![Authentication Tab][Auth_Image]
 
 ![Advanced Tab][Adv_Tab_Image]
-
-### Install
-
-![Install Tools][tools_image]
-
-![SSHDump][sshdump_image]
-
 
 <!-- Links -->
 
