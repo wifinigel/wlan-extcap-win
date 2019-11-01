@@ -51,7 +51,7 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
 
   ...and then save by hitting Ctrl-X and hitting 'Y' to save changes
 
-### 1.3 Installation - Full Version
+### 1.3 Installation
 
 Installing the wlan-extcap-win plugin is relatively easy. Once you have Wireshark installed on your Winodws 10 machine and your WLANPi up and running, it's pretty much just a case of copying one file in to your Wireshark directory. 
 
