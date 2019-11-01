@@ -13,11 +13,12 @@ This is an easy to install plug-in to allow configuration and wireless capture f
 
 If you want to get going quickly and are happy to try out the defaults*, go with the following steps:
 
-1. Make sure you have Wireshark 3.0.x installed, with the SSHDump option (in the Tools section) checked during install
+1. Make sure you install Wireshark 3.0.x on your Windows 10 machine, with the SSHDump option (in the Tools section) checked during install
     1. Here is the check-box you need for SSHDump (Under the Tools snap-open) - *** Don't miss this step *** ![SSH Dump option Image][sshdump_image]
-    2. if you are wondering if your Wireshark installation already has SSHDump, it probably hasn't - it's not a default component that's installed with Wireshark. You can do a quick check by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. If you don't have it, re-install Wireshark
-2. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but please do not use any of the 1.9 alpha versions.
-    1. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
+    2. If you are wondering if your Wireshark installation already has SSHDump installed, it probably hasn't - it's not a default component that's installed with Wireshark. You can do a quick check by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. If you don't have it, re-run the Wireshark installer.
+2. WLANPi requirements:
+    1. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but fr now we have to run with the 1.8.3 fix (do not try to use any of the 1.9 alpha images).
+    2. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
 3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
 4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
 5. Make sure you have network connectivity to your WLANPi
@@ -27,7 +28,7 @@ If you want to get going quickly and are happy to try out the defaults*, go with
    3. Click the small cog icon next to the interface to configure your capture session ![Interfaces][Interface_Image]
 7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
 
-(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPii IP address is 192.168.42.1), wireless intrface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - docs to follow on this_)
+(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPi IP address is 192.168.42.1), wireless interface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - see [here](#setting-plugin-defaults)_)
 
 ### 1.2 Image Version 1.8.3 Workaround
 
@@ -144,7 +145,6 @@ To change the plugin defauts, open the plugin file (wlanpidump.bat) that you cop
   set host=192.168.42.1
   set remote_interface=wlan0
   set time_set=1
-
 ```
 Hopefully the variables are fairly self-explanatory. If you've changed the login password on your WLANPi to somethign other than the default, you can set the login password by changing the value in the line:  'set password=wlanpi' to 'set password=newpassword'.
 
