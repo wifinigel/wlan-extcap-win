@@ -30,11 +30,11 @@ This is an easy to install plug-in to allow configuration and wireless capture f
 
 If you want to get going quickly and are happy to try out the defaults*, go with the following steps:
 
-1. Make sure you install Wireshark 3.0.x on your Windows 10 machine, with the SSHDump option (in the Tools section) checked during install
+1. Make sure you install Wireshark 3.0.6 or later on your Windows 10 machine, with the SSHDump option (in the Tools section) checked during install
     1. Here is the check-box you need for SSHDump (Under the Tools snap-open) - *** Don't miss this step *** ![SSH Dump option Image][sshdump_image]
     2. If you are wondering if your Wireshark installation already has SSHDump installed, it probably hasn't - it's not a default component that's installed with Wireshark. You can do a quick check by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. If you don't have it, re-run the Wireshark installer.
 2. WLANPi requirements:
-    1. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but fr now we have to run with the 1.8.3 fix (do not try to use any of the 1.9 alpha images).
+    1. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but for now we have to run with the 1.8.3 fix (do not try to use any of the 1.9 alpha images).
     2. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
 3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
 4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
@@ -71,35 +71,35 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
 
 ### 1.3 Installation
 
-Installing the wlan-extcap-win plugin is relatively easy. Once you have Wireshark installed on your Winodws 10 machine and your WLANPi up and running, it's pretty much just a case of copying one file in to your Wireshark directory. 
+Installing the wlan-extcap-win plugin is relatively easy. Once you have Wireshark installed on your Windows 10 machine and your WLANPi up and running, it's pretty much just a case of copying one file in to your Wireshark directory. 
 
 Before we can get to the good stuff though, we need to get a few things in place. I like pictures, so here is a picture of what we're going to achieve:
 
 ![WLANPI Operation Overview][wlanpi_overview]
 
-To summarise, we want to use our WLANPi to capture 802.11 frames over the air. Windows is very tricky when comes to getting a native wireless adapter that can be used in monitor mode to capture 802.11 frames, so the WLANPi (which CAN capture 802.11 frames) is a nice solution to capture frames for us and stream them in to our copy of Wireshark on our Windows laptop.
+To summarise, we want to use our WLANPi to capture 802.11 frames over the air. Windows is very tricky when comes to getting a native wireless adapter that can be used in monitor mode to capture 802.11 frames. The WLANPi (which CAN capture 802.11 frames) is a nice solution to capture frames for us and stream them in to our copy of Wireshark on our Windows laptop. 
 
 #### 1.3.1 Connectivity
 
-The WLANPi needs to be configured to operate on a specific channel we'd like to capture on, as well as setting things like the channel width. The configuration is done over an SSH session fro our Windows machine, so needs some credentials to login in to our WLANPi to make the changes.
+The WLANPi needs to be configured to operate on a specific channel we'd like to capture on, as well as setting things like the capture channel width. The configuration is done over an SSH session from our Windows machine, so needs some credentials to login in to our WLANPi to make the changes.
 
-The Windows machine and WLANPi can be connected via any type of IP network connection. In the example above, the Windows laptop is connected via a USB connection to the micro-USB connector on the WLANPI. This both powers the WLANPi, and also forms an Ethernet over USB network connection. This is something that Windows does automatically for us. If you look on your Windows network interface list after you plug in your WLANPi, you'll see a new  interface which is shown as an Ethernet adapter with a 192.168.42.x address. A good check before trying to use our plugin it to try an SSH session to the WLANPi from the Windows laptop to make sure network connectivity has been establised.
+The Windows machine and WLANPi can be connected via any type of IP network connection. In the example above, the Windows laptop is connected via a USB connection to the micro-USB connector on the WLANPi. This both powers the WLANPi, and also forms an Ethernet over USB network connection. This is something that Windows does automatically for us. If you look on your Windows network interface list after you plug in your WLANPi, you'll see a new  interface which is shown as an Ethernet adapter with a 192.168.42.x address. A good check before trying to use our plugin is to try an SSH session from the Windows machine to the WLANPi from the Windows laptop to make sure network connectivity has been establised.
 
 #### 1.3.2 Wireshark
 
 We need Wireshark installed on our Windows machine so that we can configure our WLANPi and display captured wireless frames. 
 
-If you don't already have Wireshark installed, do a quick Google and download the latest version. You must use verison 3.0.6 or later. However, before you double click the Wireshark install file and hit next, next, next...you need to know the following information. There is an optional component you need to install called 'SSHDump'. It isn't one of the default selected components, so you need to look out for it and make sure it's selected before completing the Wireskark install. You will find it under the Tools option during the installation wizard:
+If you don't already have Wireshark installed, do a quick Google search and download the latest version. You must use version 3.0.6 or later. However, before you double click the Wireshark install file and hit next, next, next...you need to know the following information. There is an optional component you need to install during the installation processs called 'SSHDump'. It isn't one of the default selected components, so you need to look out for it and make sure it's selected before completing the Wireskark install. You will find it under the 'Tools' option during the installation wizard:
 
 ![Install Tools][tools_image]
 
 ![SSHDump][sshdump_image]
 
-If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and checking if you have the sshdump.exe file. If not, you need to run the installer again.
+If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and verifying if you have the sshdump.exe file present. If not, you need to run the installer again.
 
 ## 2. Operation
 
-Once you have your laptop hooked up to the WLANPi, you have Wireshark set-up, then you're ready to capture.
+Once you have your laptop hooked up to the WLANPi and have Wireshark set-up, then you're ready to capture.
 
 Fire up Wireshark and look out for the interface list at the bottom of the app home page. You should see something like this:
 
@@ -114,14 +114,14 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 ![Capture Tab][Capture_Image]
 
 * Channel: Select the channel that you would like the WLANPi to capture on
-* Channel width: Select the width of the channel you wish capture (note, it the channel is 40MHz wide and you only select 20MHz, you likely won't see ant data frames in your capture)
+* Channel width: Select the width of the channel you wish capture (note, if the required capture channel is 40MHz wide and you only select 20MHz, you won't see the data frames in you were hoping for in your capture, just lots of management & control frames)
 
 ### 2.3 Server Tab
 
 ![Server Tab][Server_Image]
 
-* WLAN Pi Address: This is the IP address of your WLANPi, which is 192.168.42.1 bey default if you use the direct USB connection method. However, the WLANPI could be connected anywhere on your network, so simply enter the IP address where you can reach your WLANPi.
-* WLANPi Port: The ususal network port for SSH is 22, which is the default provided in this utility. If you change the port used by SSH on you WLANPi for some reason, you will need to update this field to match
+* WLAN Pi Address: This is the IP address of your WLANPi, which is 192.168.42.1 by default if you use the direct USB connection method. However, the WLANPI could be connected anywhere on your network, so simply enter the IP address where you can reach your WLANPi.
+* WLANPi Port: The usual network port for SSH is 22, which is the default provided in this utility. If you change the port used by SSH on you WLANPi for some reason, you will need to update this field to match
 
 ### 2.4 Authentication Tab
 
@@ -129,24 +129,24 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 
 * WLAN Pi Username: As an SSH session is established between your Windows machine and the WLANPi, login credentials are required. The default username used on a default WLANPi image is 'wlanpi'. If you have a different account on the WLANPi you would like to use, update this field
 * WLAN Pi Username: As an SSH session is established between your Windows machine and the WLANPi, login credentials are required. The default password used on a default WLANPi image is 'wlanpi'. If you change the default password or have a different account on the WLANPi you would like to use, update this field
-* Path to SSH Private Key: If you choose to use a priavet key to authenticate instead of using a username/password, enter the pasth to the key file here
+* Path to SSH Private Key: If you choose to use a private key to authenticate instead of using a username/password, enter the path to the key file here (_this is an untested feature_)
 
 ### 2.5 Advanced Tab
 
 ![Advanced Tab][Adv_Tab_Image]
 
-* Remote Interface: This is the name of the wireless interface on the WLANPi being used to do the capture. This is generally wlan0, but if you have two NICS plugged in to the WLANPi, the 2nd NIC would be wlan1. To verify the interface name, SSH to the WLANPi and execute the command 'sudo /usr/sbin/iw dev' to see the wireless interface names
-* Remote Capture Filter: There may be some instabce whe you only want to capture specific frames or frame types and not pull all frames across the link between your WLAN and your laptop. This is particularly relevant if you WLANPi is at a remote site and you don't want to pull lots of data across your network. A capture filter will do this job for you. However, the syntax of the capture filters is not the same as the display filter syntax yiu many be used to in Wireshark. For a guide on capture filters you can use, check out this blog article I wrote a while back: [Wireshark Capture Filters for 802.11][filter_article].
-* Frame Slice (bytes): This is another useful mechanism for keep the level of traffic down that is generated by a capture - it also keeps you capture file sizes down. If you apply a frame slice value, then capured frames will be sliced of after the number of bytes specified. This is particulalry good for keeping large data frames to a resonable size if you are capturing on a busy network. You have to be careful not to be too aggressive with this, as you may lose useful informtion in larger frames such as beacons, so I'd recommend you prbably don't go much below 400 bytes with this value generally.
-* Sync WLANPi Time: One of the issues with using the WLANPi over the direct USB connection method is that the WLANPi does not get any time sync information. It also does not remember the time between now and the last time you powered it on. If you enable this feature, the local time from you laptop will be used to update the time on your WLANPi befor each capture begins. However, if you WLANPI is connected to your network somewhere and it getting its time from NTP, you will likely want to disable this feature, as NTP is probably going to be a slighlty more accurate time.
+* Remote Interface: This is the name of the wireless interface on the WLANPi being used to do the capture. This is generally 'wlan0', but if you have two NICS plugged in to the WLANPi, the 2nd NIC would be 'wlan1'. To verify the interface name, SSH to the WLANPi and execute the command _'sudo /usr/sbin/iw dev'_ to see the wireless interface names
+* Remote Capture Filter: There may be some instances when you only want to capture specific frames or frame types and not pull all frames across the link between your WLANPi and your laptop. This is particularly relevant if your WLANPi is at a remote site and you don't want to pull lots of data across your network. A capture filter will do this job for you. However, the syntax of the capture filters is not the same as the display filter syntax you may be used to in Wireshark. For a guide on capture filters you can use, check out this blog article I wrote a while back: [Wireshark Capture Filters for 802.11][filter_article].
+* Frame Slice (bytes): This is another _very_ useful mechanism for keeping the level of traffic down that is generated by a capture - it also keeps your capture file sizes down. If you apply a frame slice value, then capured frames will be sliced off after the number of bytes specified in this field. This is particularly good for keeping large data frames to a resonable size if you are capturing on a busy network. You have to be careful not to be too aggressive with this, as you may lose useful information in larger frames such as beacons that you want to see, so I'd recommend you probably don't go much below 400 bytes with this value generally.
+* Sync WLANPi Time: One of the issues with using the WLANPi over the direct USB connection is that the WLANPi does not get any time sync information. It also does not remember the time between now and the last time you powered it on. If you enable this feature, the local time from you laptop will be used to update the time on your WLANPi befor each capture begins. However, if you WLANPI is connected to your network somewhere (usually via its Ethernet port) and is getting its time from NTP, you will likely want to disable this feature, as NTP is probably going to be a slightly more accurate time source.
 
 ## 3. Setting Plugin Defaults
 
-When you're using the plugin withi Wireshark, you will se a set of default configuration values that pop up every time you use the plugin. Fo instnce, you will see that the username for the WLANPi is 'wlanpi' and that hostname is 192.168.42.1. It may be that these defaults are not suitaed to your environment and it becomes annoying over time to keep changin them in the GUI. 
+You will see a set of default configuration values that are used to populate some of the plugin fields each time you use the plugin. For instance, you will see that the username for the WLANPi is always 'wlanpi' and that hostname is always 192.168.42.1. It may be that these defaults are not suited to your environment and become annoying over time as you have to keep changing them in the GUI. 
 
-If this is the case, and you'd like to set your own defaults, then you can edit the plugin file directly and change the defaut values to something more useful.
+If this is the case, and you'd like to set your own defaults, you can edit the plugin file directly and change the defaut values to something more useful.
 
-To change the plugin defauts, open the plugin file (wlanpidump.bat) that you copied in to the Wireshark extcap directory using a text editor such as Notepad or Notepad++. Towards tht upper end of the file (after all the text at the top), you'll see the following area:
+To change the plugin defauts, open the plugin file (wlanpidump.bat) that you copied in to the Wireshark extcap directory, using a text editor such as Notepad or Notepad++. Towards the upper end of the file (after all the text at the top), you'll see the following area that needs to be edited:
 
 ```
   REM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -163,16 +163,16 @@ To change the plugin defauts, open the plugin file (wlanpidump.bat) that you cop
   set remote_interface=wlan0
   set time_set=1
 ```
-Hopefully the variables are fairly self-explanatory. If you've changed the login password on your WLANPi to somethign other than the default, you can set the login password by changing the value in the line:  'set password=wlanpi' to 'set password=newpassword'.
+Hopefully the variables are fairly self-explanatory. If you've changed the login password on your WLANPi to something other than the default, you can set the login password by changing the value in the line:  'set password=wlanpi' to 'set password=newpassword'.
 
-The 'time-set' variable is probably best left to '1' (enabled) unless your WLANPis connected to a network port soemwhere and is getting its time from NTP. In this instance you probably don;t want to set the time on the WLANPi from your Windows machine, so set it to '0'.
+The 'time-set' variable is probably best left to '1' (enabled) unless your WLANPis connected to a network port somewhere and is getting its time from NTP. In this instance you probably don't want to set the time on the WLANPi from your Windows machine, so set this value to '0'.
 
 Once you have made the changes, make sure you save the file and then restart Wireshark to see the new defaults.
 
 ## 4. FAQ
 
-1. _How do I re-configure capture parameters without having to restart Wirehark to access the interface lists again?_ Hit File -> Close, optionally save your current capture, then select the configuration cog again to set session parameters
-2. _How do I check if SSHDump has already been installed with Wireshark?_ You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and checking if you have the sshdump.exe file
+1. _How do I re-configure capture parameters without having to restart Wirehark to access the interface lists again?_ Hit File -> Close, optionally save your current capture, then select the interface configuration cog again to set session parameters
+2. _How do I check if SSHDump has already been installed with Wireshark on my machine?_ You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and checking if you have the sshdump.exe file present
 
 
 ## 5. Support 
