@@ -7,6 +7,23 @@ This is an easy to install plug-in to allow configuration and wireless capture f
 
 ![Screenshot][Capture_Image]
 
+1. [Installation](#1-installation)
+  1. [Quickstart](#11-quickstart)
+  2. [Image version 1.8.3 Workaround](#12-image-version-183-workaround)
+  3. [Installation](#13-installation)
+    1. [Connectivity](#131-connectivity)
+    2. [Wireshark](#132-wireshark)
+2. [Operation](#2-operation)
+  1. [Interface List](#21-interface-list)
+  2. [Capture Tab](#22-capture-tab)
+  3. [Server Tab](#23-server-tab)
+  4. [Authentication Tab](#24-authentication-tab)
+  5. [Advanced Tab](#25-advanced-tab)
+3. [Setting Plugin defaults](#3-setting-plugin-defaults)
+4. [FAQ](#4-faq)
+5. [Support](#5-support)
+6. [Credits](#6-credits)
+
 ## 1. Installation
 
 ### 1.1 Quickstart
@@ -28,7 +45,7 @@ If you want to get going quickly and are happy to try out the defaults*, go with
    3. Click the small cog icon next to the interface to configure your capture session ![Interfaces][Interface_Image]
 7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
 
-(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPi IP address is 192.168.42.1), wireless interface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - see [here](#3.-setting-plugin-defaults)_)
+(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPi IP address is 192.168.42.1), wireless interface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - see [here](#3-setting-plugin-defaults)_)
 
 ### 1.2 Image Version 1.8.3 Workaround
 
@@ -106,7 +123,7 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 * WLAN Pi Address: This is the IP address of your WLANPi, which is 192.168.42.1 bey default if you use the direct USB connection method. However, the WLANPI could be connected anywhere on your network, so simply enter the IP address where you can reach your WLANPi.
 * WLANPi Port: The ususal network port for SSH is 22, which is the default provided in this utility. If you change the port used by SSH on you WLANPi for some reason, you will need to update this field to match
 
-### 2.3 Authentication Tab
+### 2.4 Authentication Tab
 
 ![Authentication Tab][Auth_Image]
 
@@ -114,7 +131,7 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 * WLAN Pi Username: As an SSH session is established between your Windows machine and the WLANPi, login credentials are required. The default password used on a default WLANPi image is 'wlanpi'. If you change the default password or have a different account on the WLANPi you would like to use, update this field
 * Path to SSH Private Key: If you choose to use a priavet key to authenticate instead of using a username/password, enter the pasth to the key file here
 
-### 2.2 Advanced Tab
+### 2.5 Advanced Tab
 
 ![Advanced Tab][Adv_Tab_Image]
 
