@@ -7,22 +7,22 @@ This is an easy to install plug-in to allow configuration and wireless capture f
 
 ![Screenshot][Capture_Image]
 
-1. [Installation](#1-installation)
-  1. [Quickstart](#11-quickstart)
-  2. [Image version 1.8.3 Workaround](#12-image-version-183-workaround)
-  3. [Installation](#13-installation)
-    1. [Connectivity](#131-connectivity)
-    2. [Wireshark](#132-wireshark)
-2. [Operation](#2-operation)
-  1. [Interface List](#21-interface-list)
-  2. [Capture Tab](#22-capture-tab)
-  3. [Server Tab](#23-server-tab)
-  4. [Authentication Tab](#24-authentication-tab)
-  5. [Advanced Tab](#25-advanced-tab)
-3. [Setting Plugin defaults](#3-setting-plugin-defaults)
-4. [FAQ](#4-faq)
-5. [Support](#5-support)
-6. [Credits](#6-credits)
+* [1. Installation](#1-installation)
+  * [1.1 Quickstart](#11-quickstart)
+  * [1.2 Image version 1.8.3 Workaround](#12-image-version-183-workaround)
+  * [1.3 Installation](#13-installation)
+    * [1.3.1 Connectivity](#131-connectivity)
+    * [1.3.2 Wireshark](#132-wireshark)
+* [2. Operation](#2-operation)
+  * [2.1 Interface List](#21-interface-list)
+  * [2.2 Capture Tab](#22-capture-tab)
+  * [2.3 Server Tab](#23-server-tab)
+  * [2.4 Authentication Tab](#24-authentication-tab)
+  * [2.5 Advanced Tab](#25-advanced-tab)
+* [3. Setting Plugin defaults](#3-setting-plugin-defaults)
+* [4. FAQ](#4-faq)
+* [5. Support](#5-support)
+* [6. Credits](#6-credits)
 
 ## 1. Installation
 
