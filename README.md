@@ -136,6 +136,8 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 
 ## 6. Credits
 
+This project is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out! Thanks to Adrian for doing all the ground work on this. If you're a Mac user, you should definitley buy all of his products: [Adrian Garandos web site][adrian_site]
+
 <!-- Links -->
 
 [wlan-extcap]: https://github.com/adriangranados/wlan-extcap
@@ -151,3 +153,4 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 [wlanpi_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlanpi_and_nic.jpg
 [wlanpi_overview]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlan_extcap_win_Overview.jpg
 [filter_article]: http://wifinigel.blogspot.com/2018/04/wireshark-capture-filters-for-80211.html
+[adrian_site]: https://www.adriangranados.com/
