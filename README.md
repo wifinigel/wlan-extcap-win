@@ -28,7 +28,7 @@ If you want to get going quickly and are happy to try out the defaults*, go with
    3. Click the small cog icon next to the interface to configure your capture session ![Interfaces][Interface_Image]
 7. Once your capture is complete, if you'd like to change the capture configuration, hit File -> Close and select the configuration cog again to set session parameters
 
-(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPi IP address is 192.168.42.1), wireless interface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - see [here](#setting-plugin-defaults)_)
+(* _Assumed defaults: credentials are wlanpi/wlanpi, connection via local USB OTG (so WLANPi IP address is 192.168.42.1), wireless interface is wlan0, WLANPi time is set from laptop - these can be changed from the GUI. To make permanent default changes, you will need to edit the wlanpidump.bat file yourself - see [here](#3.-setting-plugin-defaults)_)
 
 ### 1.2 Image Version 1.8.3 Workaround
 
