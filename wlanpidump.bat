@@ -319,9 +319,10 @@ rem ####################
 	powershell.exe (get-date)::Now.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') > "%TEMP%\locatime.txt"
 	set /P datetime=<"%TEMP%\locatime.txt"
 	set time_cmd=sudo date -s '%datetime%' ^> /dev/null;
+	set kill_old_instances_cmd=kill -9 `pidof tcpdump`;
 
 	:nodate
-	set capture_cmd="%time_cmd% sudo /sbin/iwconfig %remote_interface% mode Monitor > /dev/null; sudo /usr/sbin/iw %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && /usr/sbin/tcpdump -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
+	set capture_cmd="%kill_old_instances_cmd% %time_cmd% sudo /sbin/iwconfig %remote_interface% mode Monitor > /dev/null; sudo /usr/sbin/iw %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && /usr/sbin/tcpdump -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
 	
 	call "%sshdump_path%" --extcap-interface sshdump --remote-host %host% --remote-port %port% --remote-capture-command %capture_cmd% --remote-username %username% --remote-password %password% --fifo %fifo% --capture
 	
