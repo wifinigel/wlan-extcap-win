@@ -22,6 +22,7 @@ This is an easy to install plug-in to allow configuration and wireless capture f
 * [3. Setting Plugin defaults](#3-setting-plugin-defaults)
 * [4. FAQ](#4-faq)
 * [5. Support](#5-support)
+  * [5.1 Known Issues](#51-known-issues)
 * [6. Credits](#6-credits)
 
 ## 1. Installation
@@ -68,6 +69,8 @@ To make this fully functional on v1.8.3, SSH to your WLANPi and edit the file '/
 ```
 
   ...and then save by hitting Ctrl-X and hitting 'Y' to save changes
+
+(Still got issues with the v1.8.3 image? Have you run the 'apt-get upgrade' command on your WLANPi after burning the image? If so, go to: [5.1 Known Issues](#51-known-issues))
 
 ### 1.3 Installation
 
@@ -179,9 +182,21 @@ Once you have made the changes, make sure you save the file and then restart Wir
 
 This is a completely spare-time project for me, but if you run in to issues you just can't fix, drop me a note and I'll do my best to help: wifinigel@gmail.com
 
+### 5.1 Known Issues
+
+When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissons on the tcpdump program may get changed, caused permission isues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi images, SSH to your WLANPi and execute the following commands. This only needs to be done once, I suggest you copy and paste these:
+
+```
+sudo chgrp pcap /usr/sbin/tcpdump
+sudo chmod 750 /usr/sbin/tcpdump
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+```
+
 ## 6. Credits
 
 This project is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out! Thanks to Adrian for doing all the ground work on this. If you're a Mac user, you should definitley buy all of his products: [Adrian Garandos web site][adrian_site]
+
+Thanks to Johannes Luther for the heads-up with a couple of issues when updating packages on the WLANPi. Great spot & thanks for the great feedback!
 
 <!-- Links -->
 
