@@ -184,7 +184,7 @@ This is a completely spare-time project for me, but if you run in to issues you 
 
 ### 5.1 Known Issues
 
-When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissons on the tcpdump program may get changed, caused permission isues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi images, SSH to your WLANPi and execute the following commands. This only needs to be done once, I suggest you copy and paste these:
+When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissons on the tcpdump program may get changed, caused permission issues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi image, SSH to your WLANPi and execute the following commands. This only needs to be done once. I suggest you copy and paste these from the text below:
 
 ```
 sudo chgrp pcap /usr/sbin/tcpdump
