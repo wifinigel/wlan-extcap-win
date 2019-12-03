@@ -33,12 +33,12 @@ If you want to get going quickly and are happy to try out the defaults*, go with
 
 1. Make sure you install Wireshark 3.0.6 or later on your Windows 10 machine, with the SSHDump option (in the Tools section) checked during install
     1. Here is the check-box you need for SSHDump (Under the Tools snap-open) - *** Don't miss this step *** ![SSH Dump option Image][sshdump_image]
-    2. If you are wondering if your Wireshark installation already has SSHDump installed, it probably hasn't - it's not a default component that's installed with Wireshark. You can do a quick check by looking to see if the sshdump.exe file is installed in your Wireshark extcap directory. If you don't have it, re-run the Wireshark installer.
+    2. If you are wondering if your Wireshark installation already has SSHDump installed, it probably hasn't - it's not a default component that's installed with Wireshark. You can do a quick check by opening "Help->About" and navigate to the "Plugins" tab. There it is listed with the version installed. If it is not listed, please reinstall Wireshark and select SSHDump for installation.
 2. WLANPi requirements:
     1. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but for now we have to run with the 1.8.3 fix (do not try to use any of the 1.9 alpha images).
     2. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
 3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
-4. Copy the file to the extcap directory of your Wireshark installation ('C:\Program Files\Wireshark\extcap' by default for the 64-bit version)
+4. Copy the file to the extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. Starting with Wireshark 3.2, a personal extcap folder can be used instead.
 5. Make sure you have network connectivity to your WLANPi
 6. Start Wireshark
    1. Look at the interface list on the Wireshark GUI home page
@@ -98,7 +98,7 @@ If you don't already have Wireshark installed, do a quick Google search and down
 
 ![SSHDump][sshdump_image]
 
-If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and verifying if you have the sshdump.exe file present. If not, you need to run the installer again.
+If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can do a quick check by opening "Help->About" and navigate to the "Plugins" tab. There it is listed with the version installed. If it is not listed, please reinstall Wireshark and select SSHDump for installation.
 
 ## 2. Operation
 
@@ -175,7 +175,7 @@ Once you have made the changes, make sure you save the file and then restart Wir
 ## 4. FAQ
 
 1. _How do I re-configure capture parameters without having to restart Wirehark to access the interface lists again?_ Hit File -> Close, optionally save your current capture, then select the interface configuration cog again to set session parameters
-2. _How do I check if SSHDump has already been installed with Wireshark on my machine?_ You can check by looking in the 'extcap' folder of your Wireshark install (the default folder for the 64-bit verison is 'C:\Program Files\Wireshark\extcap') and checking if you have the sshdump.exe file present
+2. _How do I check if SSHDump has already been installed with Wireshark on my machine?_ You can do a quick check by opening "Help->About" and navigate to the "Plugins" tab. There it is listed with the version installed. If it is not listed, please reinstall Wireshark and select SSHDump for installation.
 
 
 ## 5. Support 
