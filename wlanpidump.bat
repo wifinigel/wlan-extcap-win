@@ -246,45 +246,46 @@ rem ####################
 
 
     rem # Channel values
-    echo value {arg=0}{value=1}{display=Channel 1}
-	echo value {arg=0}{value=2}{display=Channel 2}
-	echo value {arg=0}{value=3}{display=Channel 3}
-	echo value {arg=0}{value=4}{display=Channel 4}
-	echo value {arg=0}{value=5}{display=Channel 5}
-	echo value {arg=0}{value=6}{display=Channel 6}
-	echo value {arg=0}{value=7}{display=Channel 7}
-	echo value {arg=0}{value=8}{display=Channel 8}
-	echo value {arg=0}{value=9}{display=Channel 9}
-	echo value {arg=0}{value=10}{display=Channel 10}
-	echo value {arg=0}{value=11}{display=Channel 11}
-	echo value {arg=0}{value=12}{display=Channel 12}
-	echo value {arg=0}{value=13}{display=Channel 13}
-	echo value {arg=0}{value=13}{display=Channel 14}
-	echo value {arg=0}{value=36}{display=Channel 36}
-	echo value {arg=0}{value=40}{display=Channel 40}
-	echo value {arg=0}{value=44}{display=Channel 44}
-	echo value {arg=0}{value=48}{display=Channel 48}
-	echo value {arg=0}{value=52}{display=Channel 52}
-	echo value {arg=0}{value=56}{display=Channel 56}
-	echo value {arg=0}{value=60}{display=Channel 60}
-	echo value {arg=0}{value=64}{display=Channel 64}
-	echo value {arg=0}{value=100}{display=Channel 100}
-	echo value {arg=0}{value=104}{display=Channel 104}
-	echo value {arg=0}{value=108}{display=Channel 108}
-	echo value {arg=0}{value=112}{display=Channel 112}
-	echo value {arg=0}{value=116}{display=Channel 116}
-	echo value {arg=0}{value=120}{display=Channel 120}
-	echo value {arg=0}{value=124}{display=Channel 124}
-	echo value {arg=0}{value=128}{display=Channel 128}
-	echo value {arg=0}{value=132}{display=Channel 132}
-	echo value {arg=0}{value=136}{display=Channel 136}
-	echo value {arg=0}{value=140}{display=Channel 140}
-	echo value {arg=0}{value=144}{display=Channel 144}
-	echo value {arg=0}{value=149}{display=Channel 149}
-	echo value {arg=0}{value=153}{display=Channel 153}
-	echo value {arg=0}{value=157}{display=Channel 157}
-	echo value {arg=0}{value=161}{display=Channel 161}
-	echo value {arg=0}{value=165}{display=Channel 165}
+    echo value {arg=0}{value=1}{display=Channel 1 / 2412 MHz}
+	echo value {arg=0}{value=2}{display=Channel 2 / 2417 MHz}
+	echo value {arg=0}{value=3}{display=Channel 3 / 2422 MHz}
+	echo value {arg=0}{value=4}{display=Channel 4 / 2427 MHz}
+	echo value {arg=0}{value=5}{display=Channel 5 / 2432 MHz}
+	echo value {arg=0}{value=6}{display=Channel 6 / 2437 MHz}
+	echo value {arg=0}{value=7}{display=Channel 7 / 2442 MHz}
+	echo value {arg=0}{value=8}{display=Channel 8 / 2447 MHz}
+	echo value {arg=0}{value=9}{display=Channel 9 / 2452 MHz}
+	echo value {arg=0}{value=10}{display=Channel 10 / 2457 MHz}
+	echo value {arg=0}{value=11}{display=Channel 11 / 2462 MHz}
+	echo value {arg=0}{value=12}{display=Channel 12 / 2467 MHz}
+	echo value {arg=0}{value=13}{display=Channel 13 / 2472 MHz}
+	echo value {arg=0}{value=13}{display=Channel 14 / 2484 MHz}
+	echo value {arg=0}{value=36}{display=Channel 36 / 5180 MHz}
+	echo value {arg=0}{value=40}{display=Channel 40 / 5200 MHz}
+	echo value {arg=0}{value=44}{display=Channel 44 / 5220 MHz}
+	echo value {arg=0}{value=48}{display=Channel 48 / 5240 MHz}
+	echo value {arg=0}{value=52}{display=Channel 52 / 5260 MHz}
+	echo value {arg=0}{value=56}{display=Channel 56 / 5280 MHz}
+	echo value {arg=0}{value=60}{display=Channel 60 / 5300 MHz}
+	echo value {arg=0}{value=64}{display=Channel 64 / 5320 MHz}
+	echo value {arg=0}{value=100}{display=Channel 100 / 5500 MHz}
+	echo value {arg=0}{value=104}{display=Channel 104 / 5520 MHz}
+	echo value {arg=0}{value=108}{display=Channel 108 / 5540 MHz}
+	echo value {arg=0}{value=112}{display=Channel 112 / 5560 MHz}
+	echo value {arg=0}{value=116}{display=Channel 116 / 5580 MHz}
+	echo value {arg=0}{value=120}{display=Channel 120 / 5600 MHz}
+	echo value {arg=0}{value=124}{display=Channel 124 / 5620 MHz}
+	echo value {arg=0}{value=128}{display=Channel 128 / 5640 MHz}
+	echo value {arg=0}{value=132}{display=Channel 132 / 5660 MHz}
+	echo value {arg=0}{value=136}{display=Channel 136 / 5680 MHz}
+	echo value {arg=0}{value=140}{display=Channel 140 / 5700 MHz}
+	echo value {arg=0}{value=144}{display=Channel 144 / 5720 MHz}
+	echo value {arg=0}{value=149}{display=Channel 149 / 5745 MHz}
+	echo value {arg=0}{value=153}{display=Channel 153 / 5765 MHz}
+	echo value {arg=0}{value=157}{display=Channel 157 / 5785 MHz}
+	echo value {arg=0}{value=161}{display=Channel 161 / 5805 MHz}
+	echo value {arg=0}{value=165}{display=Channel 165 / 5825 MHz}
+
 
     rem # Channel width values
     echo value {arg=1}{value=HT20}{display=20 MHz}
