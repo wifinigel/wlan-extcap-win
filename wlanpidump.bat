@@ -106,7 +106,7 @@ rem # Configure global vars
 rem ########################
 :init
     set "__NAME=%~n0"
-    set "__VERSION=0.01-b1"
+    set "__VERSION=0.02"
     set "__YEAR=2019"
 
     set "__BAT_FILE=%~0"

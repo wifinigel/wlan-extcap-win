@@ -198,6 +198,8 @@ This project is based on Adrian Granados' original python scripts on the [wlan-e
 
 Thanks to Johannes Luther for the heads-up with a couple of issues when updating packages on the WLANPi. Great spot & thanks for the great feedback!
 
+Thanks to Patrick Langendoen for the freq details PR :)
+
 <!-- Links -->
 
 [wlan-extcap]: https://github.com/adriangranados/wlan-extcap
