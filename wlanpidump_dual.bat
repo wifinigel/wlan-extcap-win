@@ -126,7 +126,7 @@ rem # Configure global vars
 rem ########################
 :init
     set "__NAME=%~n0"
-    set "__VERSION=0.01-b1"
+    set "__VERSION=0.02-b1"
     set "__YEAR=2019"
 
     set "__BAT_FILE=%~0"
@@ -402,7 +402,7 @@ rem ####################
 	set set_if0=sudo /sbin/iwconfig %remote_interface%  mode Monitor ^> /dev/null; sudo /usr/sbin/iw %remote_interface%  set channel %remote_channel%  %remote_channel_width%  ^> /dev/null;
 	set set_if1=sudo /sbin/iwconfig %remote_interface2% mode Monitor ^> /dev/null; sudo /usr/sbin/iw %remote_interface2% set channel %remote_channel2% %remote_channel_width2% ^> /dev/null;
 	set airmon_kill=/usr/local/sbin/airmon-ng check kill ^> /dev/null;
-	set capture_cmd="%time_cmd% %set_if0% %set_if1% sudo /usr/bin/tshark %filter_statement% -s %frame_slice% -i %remote_interface% -i %remote_interface2%  -w - "
+	set capture_cmd="%time_cmd% %set_if0% %set_if1% /usr/bin/tshark %filter_statement% -s %frame_slice% -i %remote_interface% -i %remote_interface2%  -w - "
 	
 	call "%sshdump_path%" --extcap-interface sshdump --remote-host %host% --remote-port %port% --remote-capture-command %capture_cmd% --remote-username %username% --remote-password %password% --fifo %fifo% --capture
 	
