@@ -332,8 +332,8 @@ rem ####################
 	rem   and will break on older WLAN Pi images...)
 	rem 
 	set if_down=sudo /sbin/ifconfig %remote_interface% down;
-	set if_up=sudo /sbin/ifconfig %remote_interface% up;
 	set set_monitor=sudo /sbin/iwconfig %remote_interface% mode monitor;
+	set if_up=sudo /sbin/ifconfig %remote_interface% up;
 
 	:nodate
 	set capture_cmd="%kill_old_instances_cmd% %time_cmd% %if_down% %set_monitor% %if_up% sudo /usr/sbin/iw %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && /usr/sbin/tcpdump -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
