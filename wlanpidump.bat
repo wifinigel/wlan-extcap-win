@@ -321,12 +321,21 @@ rem ####################
 	set /P datetime=<"%TEMP%\locatime.txt"
 	set time_cmd=sudo date -s '%datetime%' ^> /dev/null;
 	set kill_old_instances_cmd=kill -9 `pidof tcpdump`;
+
+	rem TODO: In the future change these commands to:
+	rem 
+	rem    sudo /sbin/ip link set %remote_interface% down
+    rem    sudo /usr/sbin/iw dev %remote_interface% set type monitor
+	rem    sudo /sbin/ip link set%remote_interface% up
+	rem
+	rem  (but remember this needs sudoers set correctly
+	rem   and will break on older WLAN Pi images...)
+	rem 
 	set if_down=sudo /sbin/ifconfig %remote_interface% down;
 	set if_up=sudo /sbin/ifconfig %remote_interface% up;
 	set set_monitor=sudo /sbin/iwconfig %remote_interface% mode monitor;
 
 	:nodate
-	rem set capture_cmd="%kill_old_instances_cmd% %time_cmd% sudo /sbin/iwconfig %remote_interface% mode Monitor > /dev/null; sudo /usr/sbin/iw %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && /usr/sbin/tcpdump -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
 	set capture_cmd="%kill_old_instances_cmd% %time_cmd% %if_down% %set_monitor% %if_up% sudo /usr/sbin/iw %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && /usr/sbin/tcpdump -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
 	
 	call "%sshdump_path%" --extcap-interface sshdump --remote-host %host% --remote-port %port% --remote-capture-command %capture_cmd% --remote-username %username% --remote-password %password% --fifo %fifo% --capture
