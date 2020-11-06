@@ -106,7 +106,7 @@ rem # Configure global vars
 rem ########################
 :init
     set "__NAME=%~n0"
-    set "__VERSION=0.03"
+    set "__VERSION=0.04"
     set "__YEAR=2020"
 
     set "__BAT_FILE=%~0"
@@ -199,7 +199,7 @@ rem # Functions
 rem #################### 
 :extcap_interface_func
     echo extcap {version=1.0}
-    echo interface {value=wifidump2}{display=WLAN Pi remote capture (Win) (v%__VERSION%)}
+    echo interface {value=wifidump2}{display=WLAN Pi 1.x rem cap (Win) (v%__VERSION%)}
 	EXIT /B 0
 
 :extcap_dlts_func
