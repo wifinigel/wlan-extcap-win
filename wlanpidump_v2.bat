@@ -227,7 +227,7 @@ rem ####################
 
     rem # Authentication Tab
     echo arg {number=4}{call=--username}{display=WLAN Pi Username}{type=string}{tooltip=The remote SSH username. If not provided, the current user will be used}{default=%username%}{group=Authentication}
-    echo arg {number=5}{call=--password}{display=WLAN Pi Password}{type=password}{tooltip=The SSH password, used when other methods (SSH agent or key files) are unavailable.}{default=%password%}{group=Authentication}
+    echo arg {number=5}{call=--password}{display=WLAN Pi Password}{type=string}{tooltip=The SSH password, used when other methods (SSH agent or key files) are unavailable.}{default=%password%}{group=Authentication}
     echo arg {number=6}{call=--sshkey}{display=Path to SSH Private Key}{type=fileselect}{tooltip=The path on the local filesystem of the private ssh key}{group=Authentication}
 
     rem # Advanced Tab
