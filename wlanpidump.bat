@@ -114,7 +114,6 @@ rem ########################
     set "__BAT_NAME=%~nx0"
 	
 	set "sshdump_path=%__BAT_PATH%sshdump.exe"
-	
 	rem # Set some Extcap defaults
 	set "capture=0"
 	set "extcap_interfaces=0"
@@ -320,7 +319,7 @@ rem ####################
 	powershell.exe (get-date)::Now.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') > "%TEMP%\locatime.txt"
 	set /P datetime=<"%TEMP%\locatime.txt"
 	set time_cmd=sudo date -s '%datetime%' ^> /dev/null;
-	set kill_old_instances_cmd=kill -9 `pidof tcpdump`;
+	set kill_old_instances_cmd=if [ `pidof tcpdump` ];then sudo kill -9 `pidof tcpdump`;fi; 
 
 	rem TODO: In the future change these commands to:
 	rem 

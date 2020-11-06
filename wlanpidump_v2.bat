@@ -133,7 +133,6 @@ rem ########################
 	
 	set "IW=/sbin/iw"
 	set "IFCONFIG=/sbin/ifconfig"
-	set "IWCONFIG=/sbin/iwconfig"
 	set "TCPDUMP=/usr/sbin/tcpdump"
 
 rem ######################
@@ -325,11 +324,10 @@ rem ####################
 	powershell.exe (get-date)::Now.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') > "%TEMP%\locatime.txt"
 	set /P datetime=<"%TEMP%\locatime.txt"
 	set time_cmd=sudo date -s '%datetime%' ^> /dev/null;
-	set kill_old_instances_cmd=if [ -z \"`sudo pidof tcpdump`\" ]; then sudo kill -9 `pidof tcpdump`; fi;
+	set kill_old_instances_cmd=if [ `pidof tcpdump` ]; then sudo kill -9 `pidof tcpdump`; fi;
 	set if_down=sudo %IFCONFIG% %remote_interface% down;
 	set if_up=sudo %IFCONFIG% %remote_interface% up;
 	set set_monitor=sudo iw %remote_interface% set monitor none;
-	rem set set_monitor=sudo %IWCONFIG% %remote_interface% mode monitor;
 
 	:nodate
 	set capture_cmd="%kill_old_instances_cmd% %time_cmd% %if_down% %set_monitor% %if_up% sudo %IW% %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && sudo %TCPDUMP% -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
