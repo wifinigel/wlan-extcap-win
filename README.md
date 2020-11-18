@@ -37,7 +37,9 @@ If you want to get going quickly and are happy to try out the defaults*, go with
 2. WLANPi requirements:
     1. Make sure you have WLANPi image version 1.8.3 (see required fix for v1.8.3 below). Once we have a prime-time v1.9.x release (due Dec 2019), the fix described below will not be required, but for now we have to run with the 1.8.3 fix (do not try to use any of the 1.9 alpha images).
     2. You'll also need a Wi-Fi NIC card plugged to the WLANPi USB that supports monitor mode (e.g. CF-912)
-3. Download this file: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
+3. Download this file: 
+    * WLAN Pi version 1.x image: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
+    * WLAN Pi version 2.x image: [wlanpidump_v2.bat][wlanpidump_v2.bat] (right-click, Save link as...)
 4. Copy the file to the extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. Starting with Wireshark 3.2, a personal extcap folder can be used instead.
 5. Make sure you have network connectivity to your WLANPi
 6. Start Wireshark
@@ -210,6 +212,7 @@ Thanks to Patrick Langendoen for the freq details PR :)
 [Interface_Image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_interface_list.JPG
 [wlanpishark-github]: https://github.com/WLAN-Pi/WLANPiShark2
 [wlanpidump.bat]: https://github.com/wifinigel/wlan-extcap-win/raw/master/wlanpidump.bat
+[wlanpidump_v2.bat]: https://github.com/wifinigel/wlan-extcap-win/raw/master/wlanpidump_v2.bat
 [sshdump_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_sshdump.JPG
 [tools_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_tools.JPG
 [wlanpi_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlanpi_and_nic.jpg
