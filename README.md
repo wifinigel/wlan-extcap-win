@@ -107,8 +107,9 @@ If you already have Wireshark installed, you probably need to run the installer 
 Finally, we need to download the Extcap script to run from Wireshark.
 
 Download this file: 
-    * WLAN Pi version 1.x image: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
-    * WLAN Pi version 2.x image: [wlanpidump_v2.bat][wlanpidump_v2.bat] (right-click, Save link as...)
+
+* WLAN Pi version 1.x image: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
+* WLAN Pi version 2.x image: [wlanpidump_v2.bat][wlanpidump_v2.bat] (right-click, Save link as...)
 
 Copy the file to the Global Extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. (This folder is usually `C:\Program Files\Wireshark\extcap`)
 
