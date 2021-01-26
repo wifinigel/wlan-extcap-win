@@ -1,7 +1,7 @@
 # Windows 10 Wireshark Plug-in for WLANPi Wireless Captures (wlan-extcap-win)
 ![wlanpi Image][wlanpi_image]
 
-This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible for Windows users to be able to install (i.e. there are no other dependancies to install on your Windows 10 machine). 
+This is an easy to install plug-in to allow configuration and wireless capture from a WLANPi directly within the Wireshark GUI. It has most of the features of the previous [WLANPiShark project][wlanpishark-github], but runs within the Wireshark GUI rather than from a Windows command prompt (...so is MUCH easier to use). It is written as a native Windows batch file to make it as easy as possible for Windows users to be able to install (i.e. there are no other dependencies to install on your Windows 10 machine). 
 
 (_Note: this is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out!_)
 
@@ -40,7 +40,7 @@ If you want to get going quickly and are happy to try out the defaults*, go with
 3. Download this file: 
     * WLAN Pi version 1.x image: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
     * WLAN Pi version 2.x image: [wlanpidump_v2.bat][wlanpidump_v2.bat] (right-click, Save link as...)
-4. Copy the file to the extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. Starting with Wireshark 3.2, a personal extcap folder can be used instead.
+4. Copy the file to the Global Extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. (This folder is usually `C:\Program Files\Wireshark\extcap`)
 5. Make sure you have network connectivity to your WLANPi
 6. Start Wireshark
    1. Look at the interface list on the Wireshark GUI home page
@@ -102,6 +102,16 @@ If you don't already have Wireshark installed, do a quick Google search and down
 
 If you already have Wireshark installed, you probably need to run the installer again and select the SSHDump component. You can do a quick check by opening "Help->About" and navigate to the "Plugins" tab. There it is listed with the version installed. If it is not listed, please reinstall Wireshark and select SSHDump for installation.
 
+### 1.3.3 Extcap Script Installation
+
+Finally, we need to download the Extcap script to run from Wireshark.
+
+Download this file: 
+    * WLAN Pi version 1.x image: [wlanpidump.bat][wlanpidump.bat] (right-click, Save link as...)
+    * WLAN Pi version 2.x image: [wlanpidump_v2.bat][wlanpidump_v2.bat] (right-click, Save link as...)
+
+Copy the file to the Global Extcap directory of your Wireshark installation. The correct path for this can be seen in "Help->About" in the tab "Folders". Please note, that each Wireshark installation will clear this path again. (This folder is usually `C:\Program Files\Wireshark\extcap`)
+
 ## 2. Operation
 
 Once you have your laptop hooked up to the WLANPi and have Wireshark set-up, then you're ready to capture.
@@ -112,7 +122,7 @@ Fire up Wireshark and look out for the interface list at the bottom of the app h
 
 ![Interfaces][Interface_Image]
 
-If you click the small cog icon next to the 'WLANPi remote capture' inteface, you will get access to the configuration panels to set up the connection to the WLANPi. Once configuration is complete, hitting the 'Start' button will initiate a capture. Each of the panels is shown below (with an explanation of the options):
+If you click the small cog icon next to the 'WLANPi remote capture' interface, you will get access to the configuration panels to set up the connection to the WLANPi. Once configuration is complete, hitting the 'Start' button will initiate a capture. Each of the panels is shown below (with an explanation of the options):
 
 ### 2.2 Capture Tab
 
@@ -142,16 +152,16 @@ If you click the small cog icon next to the 'WLANPi remote capture' inteface, yo
 
 * Remote Interface: This is the name of the wireless interface on the WLANPi being used to do the capture. This is generally 'wlan0', but if you have two NICS plugged in to the WLANPi, the 2nd NIC would be 'wlan1'. To verify the interface name, SSH to the WLANPi and execute the command _'sudo /usr/sbin/iw dev'_ to see the wireless interface names
 * Remote Capture Filter: There may be some instances when you only want to capture specific frames or frame types and not pull all frames across the link between your WLANPi and your laptop. This is particularly relevant if your WLANPi is at a remote site and you don't want to pull lots of data across your network. A capture filter will do this job for you. However, the syntax of the capture filters is not the same as the display filter syntax you may be used to in Wireshark. For a guide on capture filters you can use, check out this blog article I wrote a while back: [Wireshark Capture Filters for 802.11][filter_article]. (_Note: Filter expressions that contain bracket symbols do not seem to work...under investigation_)
-* Frame Slice (bytes): This is another _very_ useful mechanism for keeping the level of traffic down that is generated by a capture - it also keeps your capture file sizes down. If you apply a frame slice value, then capured frames will be sliced off after the number of bytes specified in this field. This is particularly good for keeping large data frames to a resonable size if you are capturing on a busy network. You have to be careful not to be too aggressive with this, as you may lose useful information in larger frames such as beacons that you want to see, so I'd recommend you probably don't go much below 400 bytes with this value generally.
-* Sync WLANPi Time: One of the issues with using the WLANPi over the direct USB connection is that the WLANPi does not get any time sync information. It also does not remember the time between now and the last time you powered it on. If you enable this feature, the local time from you laptop will be used to update the time on your WLANPi befor each capture begins. However, if you WLANPI is connected to your network somewhere (usually via its Ethernet port) and is getting its time from NTP, you will likely want to disable this feature, as NTP is probably going to be a slightly more accurate time source.
+* Frame Slice (bytes): This is another _very_ useful mechanism for keeping the level of traffic down that is generated by a capture - it also keeps your capture file sizes down. If you apply a frame slice value, then captured frames will be sliced off after the number of bytes specified in this field. This is particularly good for keeping large data frames to a reasonable size if you are capturing on a busy network. You have to be careful not to be too aggressive with this, as you may lose useful information in larger frames such as beacons that you want to see, so I'd recommend you probably don't go much below 400 bytes with this value generally.
+* Sync WLANPi Time: One of the issues with using the WLANPi over the direct USB connection is that the WLANPi does not get any time sync information. It also does not remember the time between now and the last time you powered it on. If you enable this feature, the local time from you laptop will be used to update the time on your WLANPi before each capture begins. However, if you WLANPI is connected to your network somewhere (usually via its Ethernet port) and is getting its time from NTP, you will likely want to disable this feature, as NTP is probably going to be a slightly more accurate time source.
 
 ## 3. Setting Plugin Defaults
 
 You will see a set of default configuration values that are used to populate some of the plugin fields each time you use the plugin. For instance, you will see that the username for the WLANPi is always 'wlanpi' and that hostname is always 192.168.42.1. It may be that these defaults are not suited to your environment and become annoying over time as you have to keep changing them in the GUI. 
 
-If this is the case, and you'd like to set your own defaults, you can edit the plugin file directly and change the defaut values to something more useful.
+If this is the case, and you'd like to set your own defaults, you can edit the plugin file directly and change the default values to something more useful.
 
-To change the plugin defauts, open the plugin file (wlanpidump.bat) that you copied in to the Wireshark extcap directory, using a text editor such as Notepad or Notepad++. Towards the upper end of the file (after all the text at the top), you'll see the following area that needs to be edited:
+To change the plugin defaults, open the plugin file (wlanpidump.bat) that you copied in to the Wireshark extcap directory, using a text editor such as Notepad or Notepad++. Towards the upper end of the file (after all the text at the top), you'll see the following area that needs to be edited:
 
 ```
   REM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -170,13 +180,13 @@ To change the plugin defauts, open the plugin file (wlanpidump.bat) that you cop
 ```
 Hopefully the variables are fairly self-explanatory. If you've changed the login password on your WLANPi to something other than the default, you can set the login password by changing the value in the line:  'set password=wlanpi' to 'set password=newpassword'.
 
-The 'time-set' variable is probably best left to '1' (enabled) unless your WLANPis connected to a network port somewhere and is getting its time from NTP. In this instance you probably don't want to set the time on the WLANPi from your Windows machine, so set this value to '0'.
+The 'time-set' variable is probably best left to '1' (enabled) unless your WLANP is connected to a network port somewhere and is getting its time from NTP. In this instance you probably don't want to set the time on the WLANPi from your Windows machine, so set this value to '0'.
 
 Once you have made the changes, make sure you save the file and then restart Wireshark to see the new defaults.
 
 ## 4. FAQ
 
-1. _How do I re-configure capture parameters without having to restart Wirehark to access the interface lists again?_ Hit File -> Close, optionally save your current capture, then select the interface configuration cog again to set session parameters
+1. _How do I re-configure capture parameters without having to restart Wireshark to access the interface lists again?_ Hit File -> Close, optionally save your current capture, then select the interface configuration cog again to set session parameters
 2. _How do I check if SSHDump has already been installed with Wireshark on my machine?_ You can do a quick check by opening "Help->About" and navigate to the "Plugins" tab. There it is listed with the version installed. If it is not listed, please reinstall Wireshark and select SSHDump for installation.
 
 
@@ -186,7 +196,7 @@ This is a completely spare-time project for me, but if you run in to issues you 
 
 ### 5.1 Known Issues
 
-When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissons on the tcpdump program may get changed, caused permission issues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi image, SSH to your WLANPi and execute the following commands. This only needs to be done once. I suggest you copy and paste these from the text below:
+When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissions on the tcpdump program may get changed, caused permission issues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi image, SSH to your WLANPi and execute the following commands. This only needs to be done once. I suggest you copy and paste these from the text below:
 
 ```
 sudo chgrp pcap /usr/sbin/tcpdump
@@ -196,7 +206,7 @@ sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
 
 ## 6. Credits
 
-This project is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out! Thanks to Adrian for doing all the ground work on this. If you're a Mac user, you should definitley buy all of his products: [Adrian Garandos web site][adrian_site]
+This project is based on Adrian Granados' original python scripts on the [wlan-extcap project][wlan-extcap] - if you're a Mac user, check it out! Thanks to Adrian for doing all the ground work on this. If you're a Mac user, you should definitely buy all of his products: [Adrian Garandos web site][adrian_site]
 
 Thanks to Johannes Luther for the heads-up with a couple of issues when updating packages on the WLANPi. Great spot & thanks for the great feedback!
 
