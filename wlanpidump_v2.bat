@@ -106,7 +106,7 @@ rem # Configure global vars
 rem ########################
 :init
     set "__NAME=%~n0"
-    set "__VERSION=2.0.1"
+    set "__VERSION=2.0.2"
     set "__YEAR=2020"
 
     set "__BAT_FILE=%~0"
@@ -132,6 +132,7 @@ rem ########################
 	set "remote_filter="
 	
 	set "IW=/sbin/iw"
+	set "IWCONFIG=/sbin/iwconfig"
 	set "IFCONFIG=/sbin/ifconfig"
 	set "TCPDUMP=/usr/sbin/tcpdump"
 
@@ -327,7 +328,7 @@ rem ####################
 	set kill_old_instances_cmd=if [ `pidof tcpdump` ]; then sudo kill -9 `pidof tcpdump`; fi;
 	set if_down=sudo %IFCONFIG% %remote_interface% down;
 	set if_up=sudo %IFCONFIG% %remote_interface% up;
-	set set_monitor=sudo iw %remote_interface% set monitor none;
+	set set_monitor=sudo %IWCONFIG% %remote_interface% mode monitor;
 
 	:nodate
 	set capture_cmd="%kill_old_instances_cmd% %time_cmd% %if_down% %set_monitor% %if_up% sudo %IW% %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && sudo %TCPDUMP% -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
