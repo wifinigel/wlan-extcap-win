@@ -209,7 +209,7 @@ sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
 
 #### Control Frames Missing (v2 Plugin)
 
-Due to a change in the operation of one of the CLI commands used by wlan-extcap-win, you may notice control frames missing from your wireless captures when using the v2 plugin. To fix this issue, make sure that you have version 2.0.2 or better of the plugin installed on your Windows machine. 
+Due to a change in the operation of one of the CLI commands used by wlan-extcap-win, you may notice control frames missing from your wireless captures when using the v2 plugin. To fix this issue, make sure that you have version 2.0.2 or better of the plugin installed on your Windows machine. (See install process [here](#133-extcap-script-installation))
 
 ![Plugin_Ver_Check][version_check]
 
