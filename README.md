@@ -197,6 +197,8 @@ This is a completely spare-time project for me, but if you run in to issues you 
 
 ### 5.1 Known Issues
 
+#### V1.8.3 Image
+
 When using the v1.8.3 WLANPi image, if you run the 'apt-get upgrade' command to update packages, some permissions on the tcpdump program may get changed, caused permission issues for the wlanpi user. This is not an issue with the plugin, but the changes on the WLANPi break a couple of things on there. To fix this if you hit it on the v1.8.3 WLANPi image, SSH to your WLANPi and execute the following commands. This only needs to be done once. I suggest you copy and paste these from the text below:
 
 ```
@@ -204,6 +206,12 @@ sudo chgrp pcap /usr/sbin/tcpdump
 sudo chmod 750 /usr/sbin/tcpdump
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
 ```
+
+#### Control Frames Missing (v2 Plugin)
+
+Due to a change in the operation of one of the CLI commands used by wlan-extcap-win, you may notice control frames missing from your wireless captures when using the v2 plugin. To fix this issue, make sure that you have version 2.0.2 or better of the plugin installed on your Windows machine. 
+
+![Plugin_Ver_Check][version_check]
 
 ## 6. Credits
 
@@ -227,6 +235,7 @@ Thanks to Patrick Langendoen for the freq details PR :)
 [sshdump_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_sshdump.JPG
 [tools_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wireshark_install_tools.JPG
 [wlanpi_image]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlanpi_and_nic.jpg
+[version_check]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/version_check.png
 [wlanpi_overview]: https://github.com/wifinigel/wlan-extcap-win/blob/master/images/wlan_extcap_win_Overview.jpg
 [filter_article]: http://wifinigel.blogspot.com/2018/04/wireshark-capture-filters-for-80211.html
 [adrian_site]: https://www.adriangranados.com/
