@@ -131,10 +131,9 @@ rem ########################
 	set "remote_channel_width=HT20"
 	set "remote_filter="
 	
-	set "IW=/sbin/iw"
-	set "IWCONFIG=/sbin/iwconfig"
-	set "IFCONFIG=/sbin/ifconfig"
-	set "TCPDUMP=/usr/sbin/tcpdump"
+	set "IW=iw"
+	set "IFCONFIG=ifconfig"
+	set "TCPDUMP=tcpdump"
 
 rem ######################
 rem # Command args parser 
@@ -328,7 +327,7 @@ rem ####################
 	set kill_old_instances_cmd=if [ `pidof tcpdump` ]; then sudo kill -9 `pidof tcpdump`; fi;
 	set if_down=sudo %IFCONFIG% %remote_interface% down;
 	set if_up=sudo %IFCONFIG% %remote_interface% up;
-	set set_monitor=sudo %IWCONFIG% %remote_interface% mode monitor;
+	set set_monitor=sudo %IW% dev %remote_interface% set type monitor;
 
 	:nodate
 	set capture_cmd="%kill_old_instances_cmd% %time_cmd% %if_down% %set_monitor% %if_up% sudo %IW% %remote_interface% set channel %remote_channel% %remote_channel_width% > /dev/null && sudo %TCPDUMP% -i %remote_interface%  %filter_statement% -s %frame_slice% -U -w - "
